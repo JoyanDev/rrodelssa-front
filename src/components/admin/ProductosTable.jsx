@@ -1,14 +1,40 @@
-export default function ProductosTable() {
+'use client'
 
-    const productos = [
-        {
-            nombre: 'Fierro Corrugado',
-            descripcion: 'Fierro Corrugado 4.5',
-            precio: 'S/ 25.00',
-            stock: 30,
-            imagen: '/fierro.png'
+import { useEffect, useState } from 'react'
+
+export default function ProductosTable({ categoria }) {
+
+    const [productos, setProductos] = useState([])
+
+    useEffect(() => {
+
+        const obtenerProductos = async () => {
+
+            try {
+
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/productos/${categoria}`
+                )
+
+                const data = await res.json()
+
+                if (data.ok) {
+
+                    setProductos(data.productos)
+
+                }
+
+            } catch (error) {
+
+                console.log(error)
+
+            }
+
         }
-    ]
+
+        obtenerProductos()
+
+    }, [categoria])
 
     return (
 
@@ -33,11 +59,11 @@ export default function ProductosTable() {
 
                 <tbody>
 
-                    {productos.map((producto, index) => (
+                    {productos.map((producto) => (
 
                         <tr
-                            key={index}
-                            className="border-b"
+                            key={producto.id}
+                            className="border-b text-black"
                         >
 
                             <td className="p-4">
@@ -49,7 +75,7 @@ export default function ProductosTable() {
                             </td>
 
                             <td className="p-4">
-                                {producto.precio}
+                                S/ {producto.precio}
                             </td>
 
                             <td className="p-4">
@@ -59,8 +85,9 @@ export default function ProductosTable() {
                             <td className="p-4">
 
                                 <img
-                                    src={producto.imagen}
-                                    className="w-16 h-16 object-cover"
+                                    src={`http://localhost:4000${producto.imagen}`}
+                                    alt={producto.nombre}
+                                    className="w-16 h-16 object-cover rounded"
                                 />
 
                             </td>

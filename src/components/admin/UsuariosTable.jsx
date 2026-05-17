@@ -1,15 +1,44 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 export default function UsuariosTable() {
 
-    const usuarios = [
-        {
-            id: 1,
-            usuario: 'Dennis',
-            correo: 'denicomon@gmail.com',
-            rol: 'usuario'
+    const [usuarios, setUsuarios] = useState([])
+
+    useEffect(() => {
+
+        const obtenerUsuarios = async () => {
+
+            try {
+
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_URL}/usuarios`
+                )
+
+                const data = await res.json()
+
+                if (data.ok) {
+
+                    const usuariosFiltrados = data.usuarios.filter(
+                        (user) => user.rol === 'usuario'
+                    )
+
+                    setUsuarios(usuariosFiltrados)
+
+                }
+
+            } catch (error) {
+
+                console.log(error)
+
+            }
+
         }
-    ]
+
+        obtenerUsuarios()
+
+    }, [])
 
     return (
 
@@ -46,15 +75,11 @@ export default function UsuariosTable() {
 
                         <div className="flex gap-2">
 
-                            <button
-                                className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md"
-                            >
+                            <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md">
                                 Editar
                             </button>
 
-                            <button
-                                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
-                            >
+                            <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
                                 Eliminar
                             </button>
 

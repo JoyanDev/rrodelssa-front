@@ -28,7 +28,7 @@ export default function LoginPage() {
 
         try {
 
-            const res = await fetch('http://localhost:4000/login', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ export default function LoginPage() {
     })
         try {
 
-            const res = await fetch('http://localhost:4000/registrar', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/registrar`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

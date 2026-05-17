@@ -13,7 +13,7 @@ import {
 async function getStats() {
 
     const res = await fetch(
-        'http://localhost:4000/admin',
+        `${process.env.NEXT_PUBLIC_API_URL}/admin`,
         {
             cache: 'no-store'
         }
