@@ -49,7 +49,7 @@ export default function LoginPage() {
                 if (data.usuario.rol === 'admin') {
                     router.push('/admin')
                 } else {
-                    router.push('/inicio')
+                    router.push('/usuario')
                 }
 
             } else {
