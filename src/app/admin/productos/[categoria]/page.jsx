@@ -30,7 +30,7 @@ export default async function ProductosPage({ params }) {
 
                     </div>
 
-                    <ProductosTable />
+                    <ProductosTable categoria={categoria} />
 
                 </div>
 
