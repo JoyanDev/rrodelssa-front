@@ -209,7 +209,11 @@ export default function ProductosTable({ categoria }) {
                                 <td className="p-4">
 
                                     <img
-                                        src={`http://localhost:4000${producto.imagen}`}
+                                        src={
+                                            producto.imagen.startsWith('/img')
+                                                ? producto.imagen
+                                                : `http://localhost:4000${producto.imagen}`
+                                        }
                                         alt={producto.nombre}
                                         className="w-16 h-16 object-cover rounded"
                                     />
@@ -225,9 +229,9 @@ export default function ProductosTable({ categoria }) {
                                         Editar
                                     </button>
 
-                                    <button 
-                                    onClick={()=>eliminarProducto(producto.id)}
-                                    className="bg-red-500 text-white px-4 py-1 rounded cursor-pointer">
+                                    <button
+                                        onClick={() => eliminarProducto(producto.id)}
+                                        className="bg-red-500 text-white px-4 py-1 rounded cursor-pointer">
                                         Eliminar
                                     </button>
 
