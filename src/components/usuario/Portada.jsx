@@ -25,7 +25,7 @@ export default function Portada() {
             </div>
 
             <Image
-                src="/const.jpg"
+                src="/img/fondo-const.jpg"
                 alt="Construcción"
                 width={400}
                 height={250}

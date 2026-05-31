@@ -9,21 +9,21 @@ export default function Categorias() {
         {
             nombre: 'Cemento',
             descripcion: 'Material resistente para estructuras',
-            imagen: '/CementoSol.jpg',
+            imagen: '/img/productos/cemento-sol.webp',
             id: 'cemento'
         },
 
         {
             nombre: 'Ladrillos',
             descripcion: 'Ideal para muros y paredes',
-            imagen: '/Ladrillo-king kong.jpg',
+            imagen: '/img/productos/ladrillo.webp',
             id: 'ladrillos'
         },
 
         {
             nombre: 'Fierros',
             descripcion: 'Para reforzar tus construcciones',
-            imagen: '/FierroAcero.jpg',
+            imagen: '/img/productos/fierro.webp',
             id: 'fierros'
         }
 
