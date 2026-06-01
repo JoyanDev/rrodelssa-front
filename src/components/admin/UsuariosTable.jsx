@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react'
 import EditarUsuarioModal from './EditarUsuarioModal'
 import Swal from 'sweetalert2'
 
-export default function UsuariosTable() {
+export default function UsuariosTable({
+    usuarios,
+    setUsuarios 
+}) {
 
-    const [usuarios, setUsuarios] = useState([])
     const [modalAbierto, setModalAbierto] = useState(false)
 
     const [usuarioSeleccionado, setUsuarioSeleccionado] = useState({
@@ -14,41 +16,6 @@ export default function UsuariosTable() {
         usuario: '',
         correo: ''
     })
-
-    useEffect(() => {
-
-        const obtenerUsuarios = async () => {
-
-            try {
-
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/usuarios`
-                )
-
-                const data = await res.json()
-
-                if (data.ok) {
-
-                    const usuariosFiltrados = data.usuarios.filter(
-                        (user) => user.rol === 'usuario'
-                    )
-
-                    setUsuarios(usuariosFiltrados)
-
-                }
-
-            } catch (error) {
-
-                console.log(error)
-
-            }
-
-        }
-
-        obtenerUsuarios()
-
-    }, [])
-
     // Abrir modal
     const abrirModal = (usuario) => {
 
@@ -210,6 +177,7 @@ export default function UsuariosTable() {
 
                                 <button
                                     onClick={() => abrirModal(user)}
+                                    title='Editar usuario'
                                     className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md cursor-pointer"
                                 >
                                     Editar
@@ -217,6 +185,7 @@ export default function UsuariosTable() {
 
                                 <button 
                                 onClick={()=>eliminarUsuario(user.id)}
+                                title='Eliminar usuario'
                                 className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md cursor-pointer">
                                     Eliminar
                                 </button>

@@ -1,10 +1,22 @@
 import Sidebar from '@/components/admin/Sidebar'
 import Navbar from '@/components/admin/Navbar'
 import ProductosTable from '@/components/admin/ProductosTable'
+import ExportarProductos from '@/components/admin/ExportarProductos'
 
 export default async function ProductosPage({ params }) {
 
     const { categoria } = await params
+
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/productos/${categoria}`,
+        {
+            cache: 'no-store'
+        }
+    )
+
+    const data = await res.json()
+
+    const productos = data.productos || []
 
     return (
 
@@ -24,9 +36,21 @@ export default async function ProductosPage({ params }) {
                             Productos - {categoria}
                         </h1>
 
-                        <button className="w-12 h-12 rounded-full border-2 border-pink-500 text-pink-500 text-3xl hover:bg-pink-500 hover:text-white transition">
-                            +
-                        </button>
+                        <div className="flex gap-3">
+
+                            <ExportarProductos
+                                productos={productos}
+                                categoria={categoria}
+                            />
+
+                            <button 
+                            
+                            title='Agregar productos'
+                            className="w-12 h-12 rounded-full border-2 border-pink-500 text-pink-500 text-3xl hover:bg-pink-500 hover:text-white transition cursor-pointer">
+                                +
+                            </button>
+
+                        </div>
 
                     </div>
 
@@ -39,5 +63,4 @@ export default async function ProductosPage({ params }) {
         </div>
 
     )
-
 }
