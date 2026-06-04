@@ -10,6 +10,7 @@ import {
     FaLock,
     FaUser
 } from 'react-icons/fa'
+import Swal from 'sweetalert2'
 
 export default function LoginPage() {
 
@@ -44,23 +45,38 @@ export default function LoginPage() {
 
             if (data.ok) {
 
-                setMensaje('✅ Login correcto')
-
                 if (data.usuario.rol === 'admin') {
+                    Swal.fire({
+                    title: 'Ingreso exitoso',
+                    text: '¡Bienvenido al panel de administración!',
+                    icon: 'success',
+                    confirmButtonColor: '#22c55e'
+                });
                     router.push('/admin')
+
                 } else {
+                    Swal.fire({
+                    title: 'Ingreso exitoso',
+                    text: '¡Bienvenido Usuario!',
+                    icon: 'success',
+                    confirmButtonColor: '#22c55e'
+                });
                     router.push('/usuario')
                 }
 
             } else {
 
-                setMensaje('❌ ' + data.mensaje)
+                Swal.fire({
+                    title: 'Error',
+                    text: data.mensaje,
+                    icon: 'error'
+                })
 
             }
 
         } catch (error) {
 
-            setMensaje('❌ Error del servidor')
+            console.log(error)
 
         }
 
