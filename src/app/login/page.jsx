@@ -109,13 +109,24 @@ export default function LoginPage() {
 
             if (data.ok) {
 
-                setMensaje('✅ Usuario registrado')
+                // setMensaje('✅ Usuario registrado')
+                Swal.fire({
+                    title: 'Registro exitoso',
+                    text: 'Se registraron los datos correctamente',
+                    icon: 'success',
+                    confirmButtonColor: '#22c55e'
+                });
 
                 setModoRegistro(false)
 
             } else {
 
-                setMensaje('❌ ' + data.mensaje)
+                // setMensaje('❌ ' + data.mensaje)
+                Swal.fire({
+                    title: 'Error',
+                    text: data.mensaje,
+                    icon: 'error'
+                });
 
             }
 

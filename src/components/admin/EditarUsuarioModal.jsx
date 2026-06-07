@@ -42,14 +42,14 @@ export default function EditarUsuarioModal({
 
                     <button
                         onClick={cerrarModal}
-                        className="bg-gray-300 px-4 py-2 rounded cursor-pointer"
+                        className="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded cursor-pointer"
                     >
                         Cancelar
                     </button>
 
                     <button
                         onClick={guardarCambios}
-                        className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer"
+                        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded cursor-pointer"
                     >
                         Guardar
                     </button>

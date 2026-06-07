@@ -34,7 +34,7 @@ export default function PerfilCard() {
 
             <div className="mt-6">
 
-                <button className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-lg shadow">
+                <button className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-lg shadow cursor-pointer">
                     Editar perfil
                 </button>
 
