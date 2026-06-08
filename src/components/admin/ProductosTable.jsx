@@ -224,6 +224,7 @@ export default function ProductosTable({ categoria }) {
 
                                     <button
                                         onClick={() => abrirModal(producto)}
+                                        title='Editar producto'
                                         className="bg-blue-500 text-white px-4 py-1 rounded cursor-pointer"
                                     >
                                         Editar
@@ -231,6 +232,7 @@ export default function ProductosTable({ categoria }) {
 
                                     <button
                                         onClick={() => eliminarProducto(producto.id)}
+                                        title='Eliminar producto'
                                         className="bg-red-500 text-white px-4 py-1 rounded cursor-pointer">
                                         Eliminar
                                     </button>
