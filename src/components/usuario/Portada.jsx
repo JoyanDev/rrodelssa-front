@@ -6,11 +6,11 @@ export default function Portada() {
 
     return (
 
-        <section className="bg-white rounded-2xl shadow-md p-8 flex justify-between items-center mb-10">
+        <section className="bg-white rounded-2xl shadow-md p-5 md:p-8 flex flex-col lg:flex-row items-center gap-8 mb-10">
 
             <div className="max-w-2xl">
 
-                <h1 className="text-5xl font-bold text-teal-900 mb-6">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-teal-900 mb-6">
                     Bienvenido a RRODELSSA PERÚ SAC
                 </h1>
 

@@ -13,11 +13,12 @@ export default function UsuarioPage() {
     const categoria = searchParams.get('categoria')
 
     return (
-        <div className="flex min-h-screen bg-gray-100">
+
+        <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
 
             <Sidebar />
 
-            <main className="flex-1 p-6">
+            <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-x-hidden">
 
                 {!categoria ? (
                     <>
@@ -31,5 +32,7 @@ export default function UsuarioPage() {
             </main>
 
         </div>
+
     )
+
 }

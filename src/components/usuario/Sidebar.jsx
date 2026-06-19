@@ -1,5 +1,3 @@
-// src/components/usuario/Sidebar.jsx
-
 'use client'
 
 import Link from 'next/link'
@@ -8,17 +6,18 @@ export default function Sidebar() {
 
     return (
 
-        <aside className="w-64 bg-[#001233] text-white min-h-screen flex flex-col justify-between p-6">
+        <aside
+            className="w-full md:w-64 bg-[#001233] text-white p-6 md:min-h-screen flex flex-col justify-between">
 
             <div>
 
-                <h1 className="text-4xl font-bold text-cyan-400 mb-10 leading-tight">
+                <h1 className="text-2xl md:text-4xl font-bold text-cyan-400 mb-6 md:mb-10 leading-tight text-center md:text-left">
                     RRODELSSA
                     <br />
                     PERÚ SAC
                 </h1>
 
-                <nav className="flex flex-col gap-5 text-lg">
+                <nav className="flex flex-wrap md:flex-col gap-4 md:gap-5 justify-center md:justify-start text-base md:text-lg">
 
                     <Link href="/usuario">
                         Materiales
@@ -44,7 +43,7 @@ export default function Sidebar() {
 
             </div>
 
-            <p className="text-sm text-gray-300">
+            <p className="hidden md:block text-sm text-gray-300">
                 © 2025 RRODELSSA PERÚ SAC
             </p>
 
