@@ -24,17 +24,17 @@ export default function Sidebar() {
                         Materiales
                     </Link>
 
-                    <a href="#cemento">
+                    <Link href="/usuario?categoria=cemento">
                         Cemento
-                    </a>
+                    </Link>
 
-                    <a href="#ladrillos">
+                    <Link href="/usuario?categoria=ladrillos">
                         Ladrillos
-                    </a>
+                    </Link>
 
-                    <a href="#fierros">
+                    <Link href="/usuario?categoria=fierros">
                         Fierros
-                    </a>
+                    </Link>
 
                     <Link href="/">
                         Salir

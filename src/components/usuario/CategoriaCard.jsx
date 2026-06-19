@@ -1,7 +1,7 @@
 // src/components/usuario/CategoriaCard.jsx
 
 import Image from 'next/image'
-
+import Link from 'next/link'
 export default function CategoriaCard({ categoria }) {
 
     return (
@@ -26,12 +26,12 @@ export default function CategoriaCard({ categoria }) {
                     {categoria.descripcion}
                 </p>
 
-                <a
-                    href={`#${categoria.id}`}
+                <Link
+                    href={`/usuario?categoria=${categoria.id}`}
                     className="bg-teal-900 text-white px-5 py-2 rounded-xl inline-block"
                 >
                     Ver más
-                </a>
+                </Link>
 
             </div>
 
