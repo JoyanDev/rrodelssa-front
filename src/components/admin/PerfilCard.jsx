@@ -1,3 +1,4 @@
+import usuario from '@/app/data/user'
 import { FaCamera } from 'react-icons/fa'
 
 export default function PerfilCard() {
@@ -9,8 +10,8 @@ export default function PerfilCard() {
             <div className="relative w-fit mx-auto">
 
                 <img
-                    src="/img/perfil.webp"
-                    alt="Foto perfil"
+                    src={usuario.foto}
+                    alt={usuario.nombre}
                     className="w-28 h-28 rounded-full object-cover border-4 border-pink-400"
                 />
 
@@ -21,15 +22,15 @@ export default function PerfilCard() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-700 mt-4">
-                admin
+                {usuario.nombre}
             </h2>
 
             <p className="text-gray-500">
-                admin@gmail.com
+                {usuario.correo}
             </p>
 
             <span className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm inline-block mt-2">
-                Admin
+                {usuario.rol}
             </span>
 
             <div className="mt-6">
